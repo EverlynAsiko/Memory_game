@@ -9,10 +9,10 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-const memory_array=['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H'];
-let memory_values=[];
-let memory_tiles_ids=[];
-let tiles_flipped=0;
+var memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H'];
+var memory_values = [];
+var memory_tile_ids = [];
+var tiles_flipped = 0;;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 /*function shuffle(array) {
@@ -28,65 +28,66 @@ let tiles_flipped=0;
 
     return array;
 }*/
-Array.prototype.memory_tile_shuffle=function(){
-	let i=this.length,j,temp;
-	while(--i>0){
-		j=Math.floor(Math.random() * (i+1));
-		temp=this[j];
-		this[j]=this[i];
-		this[i]=temp;
-	}
+Array.prototype.memory_tile_shuffle = function(){
+    var i = this.length, j, temp;
+    while(--i > 0){
+        j = Math.floor(Math.random() * (i+1));
+        temp = this[j];
+        this[j] = this[i];
+        this[i] = temp;
+    }
 }
 
-function newGamebox(){
-	tiles_flipped=0;
-	let output='';
-	memory_array.memory_tile_shuffle();
-	for (let i = 0; i < memory_array.length; i++) {
-		output+=`<div id="tile_"${i} onclick="memoryFlipTile(this,\'${memory_array[i]}\')"></div>`;
+function newBoard(){
+	tiles_flipped = 0;
+	var output = '';
+    memory_array.memory_tile_shuffle();
+	for(var i = 0; i < memory_array.length; i++){
+		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
 	}
-	document.getElementById('gamebox').innerHTML=output;
+	document.getElementById('memory_board').innerHTML = output;
 }
 
-function memoryFlipTile(tile, val){
-	if(tile.innerHTML===""&& memory_values.length<2){
-		tile.style.background='#FFF';
-		tile.innerHTML=val;
-		if(memory_values.length===0){
+function memoryFlipTile(tile,val){
+	if(tile.innerHTML == "" && memory_values.length < 2){
+		tile.style.background = '#FFF';
+		tile.innerHTML = val;
+		if(memory_values.length == 0){
 			memory_values.push(val);
-			memory_tiles_ids.push(tile.id);
-		}else if(memory_values.length===1){
+			memory_tile_ids.push(tile.id);
+		} else if(memory_values.length == 1){
 			memory_values.push(val);
-			memory_tiles_ids.push(tile.id);
-			if(memory_values[0]===memory_values[1]){
-				tiles_flipped+=2;
-				//clear both arrays
-				memory_values=[];
-				memory_tiles_ids=[];
-				//check to see if the whole board is cleared
-				if(tiles_flipped===memory_array.length){
-					alert("Board cleared...generating new board");
-					document.getElementById('gamebox').innerHTML="";
-					newGamebox();
+			memory_tile_ids.push(tile.id);
+			if(memory_values[0] == memory_values[1]){
+				tiles_flipped += 2;
+				// Clear both arrays
+				memory_values = [];
+            	memory_tile_ids = [];
+				// Check to see if the whole board is cleared
+				if(tiles_flipped == memory_array.length){
+					alert("Board cleared... generating new board");
+					document.getElementById('memory_board').innerHTML = "";
+					newBoard();
 				}
-			}else {
+			} else {
 				function flip2Back(){
-					let tile_1=document.getElementById(memory_tiles_ids[0]);
-					let tile_2=document.getElementById(memory_tiles_ids[1]);
-					tile_1.style.background='url(./images/cardtop.jpg) no-repeat';
-					tile_1.innerHTML="";
-					tile_2.style.background='url(./images/cardtop.jpg) no-repeat';
-					tile_2.innerHTML="";
-					//clear both arrays
-					memory_values=[];
-					memory_tiles_ids=[];
+				    // Flip the 2 tiles back over
+				    var tile_1 = document.getElementById(memory_tile_ids[0]);
+				    var tile_2 = document.getElementById(memory_tile_ids[1]);
+				    tile_1.style.background = 'url(images/cardtop.jpg) no-repeat';
+            	    tile_1.innerHTML = "";
+				    tile_2.style.background = 'url(images/cardtop.jpg) no-repeat';
+            	    tile_2.innerHTML = "";
+				    // Clear both arrays
+				    memory_values = [];
+            	    memory_tile_ids = [];
 				}
 				setTimeout(flip2Back, 700);
 			}
 		}
 	}
 }
-window.addEventListener("load", newGamebox());
+window.addEventListener("load", newBoard());
 
 
 /*
