@@ -9,14 +9,18 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-var memory_array = ['A','A','B','B','C','C','D','D','E','E','F','F','G','G','H','H'];
-var memory_values = [];
-var memory_tile_ids = [];
-var tiles_flipped = 0;;
+let memory_array = ['../images/burundi.jpeg','../images/burundi.jpeg','../images/djibouti.jpeg',
+'../images/djibouti.jpeg','../images/eritrea.jpeg','../images/eritrea.jpeg','../images/ethiopia.jpeg',
+'../images/ethiopia.jpeg','../images/kenya.jpg','../images/kenya.jpg','../images/rwanda.jpeg',
+'../images/rwanda.jpeg','../images/tanzania.jpeg','../images/tanzania.jpeg','../images/uganda.jpg',
+'../images/uganda.jpg'];
+let memory_values = [];
+let memory_tile_ids = [];
+let tiles_flipped = 0;;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 /*function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -29,7 +33,7 @@ var tiles_flipped = 0;;
     return array;
 }*/
 Array.prototype.memory_tile_shuffle = function(){
-    var i = this.length, j, temp;
+    let i = this.length, j, temp;
     while(--i > 0){
         j = Math.floor(Math.random() * (i+1));
         temp = this[j];
@@ -40,9 +44,9 @@ Array.prototype.memory_tile_shuffle = function(){
 
 function newBoard(){
 	tiles_flipped = 0;
-	var output = '';
+	let output = '';
     memory_array.memory_tile_shuffle();
-	for(var i = 0; i < memory_array.length; i++){
+	for(let i = 0; i < memory_array.length; i++){
 		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
 	}
 	document.getElementById('memory_board').innerHTML = output;
@@ -72,8 +76,8 @@ function memoryFlipTile(tile,val){
 			} else {
 				function flip2Back(){
 				    // Flip the 2 tiles back over
-				    var tile_1 = document.getElementById(memory_tile_ids[0]);
-				    var tile_2 = document.getElementById(memory_tile_ids[1]);
+				    let tile_1 = document.getElementById(memory_tile_ids[0]);
+				    let tile_2 = document.getElementById(memory_tile_ids[1]);
 				    tile_1.style.background = 'url(images/cardtop.jpg) no-repeat';
             	    tile_1.innerHTML = "";
 				    tile_2.style.background = 'url(images/cardtop.jpg) no-repeat';
