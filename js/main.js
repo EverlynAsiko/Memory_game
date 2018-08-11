@@ -9,11 +9,11 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-let memory_array = ['../images/burundi.jpeg','../images/burundi.jpeg','../images/djibouti.jpeg',
-'../images/djibouti.jpeg','../images/eritrea.jpeg','../images/eritrea.jpeg','../images/ethiopia.jpeg',
-'../images/ethiopia.jpeg','../images/kenya.jpg','../images/kenya.jpg','../images/rwanda.jpeg',
-'../images/rwanda.jpeg','../images/tanzania.jpeg','../images/tanzania.jpeg','../images/uganda.jpg',
-'../images/uganda.jpg'];
+let memory_array = ['images/burundi.jpeg','images/burundi.jpeg','images/djibouti.jpeg',
+'images/djibouti.jpeg','images/eritrea.jpeg','images/eritrea.jpeg','images/ethiopia.jpeg',
+'images/ethiopia.jpeg','images/kenya.jpg','images/kenya.jpg','images/rwanda.jpeg',
+'images/rwanda.jpeg','images/tanzania.jpeg','images/tanzania.jpeg','images/uganda.jpg',
+'images/uganda.jpg'];
 let memory_values = [];
 let memory_tile_ids = [];
 let tiles_flipped = 0;;
@@ -47,14 +47,13 @@ function newBoard(){
 	let output = '';
     memory_array.memory_tile_shuffle();
 	for(let i = 0; i < memory_array.length; i++){
-		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\''+memory_array[i]+'\')"></div>';
+		output += '<div id="tile_'+i+'" onclick="memoryFlipTile(this,\'<img src='+memory_array[i]+'>\')"></div>';
 	}
 	document.getElementById('memory_board').innerHTML = output;
 }
 
 function memoryFlipTile(tile,val){
 	if(tile.innerHTML == "" && memory_values.length < 2){
-		tile.style.background = '#FFF';
 		tile.innerHTML = val;
 		if(memory_values.length == 0){
 			memory_values.push(val);
