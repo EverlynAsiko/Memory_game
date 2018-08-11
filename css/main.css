@@ -1,4 +1,4 @@
-div#memory_board{
+#memory_board{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -10,7 +10,7 @@ div#memory_board{
 	padding:24px;
 	margin:0px auto;
 }
-div#memory_board > div{
+#memory_board > div{
 	background: url(../images/cardtop.jpg) no-repeat;
 	object-fit: cover;
 	border:1px solid #000;
@@ -26,4 +26,8 @@ img {
 	height: 98px;
 	border:1px solid #000;
 	border-radius: 4px;
+}
+
+.page-header {
+	text-align: center;
 }

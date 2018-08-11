@@ -6,16 +6,47 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="container">
 		<header class="page-header">
-			<h1>Find the perfect match!!!</h1>			
+			<h1>Find the perfect match!!!</h1>
+			<div id="gameInfo">
+				<span id="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+				</span>&nbsp&nbsp&nbsp&nbsp
+				<span id="moves"></span> Moves &nbsp&nbsp&nbsp&nbsp
+				Time: <span id="timer"></span>  &nbsp&nbsp&nbsp&nbsp
+				<button type="button" id="restartBtn" onclick="newBoard()"><i class="fa fa-repeat"></i> Restart</button>
+			</div>			
 		</header>
 
 		<div id="memory_board">
 		</div>
-	</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+		   <div class="modal-dialog">
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			    	<div class="modal-header">
+			    		<button type="button" class="close" data-dismiss="modal">&times;</button>
+			    		<h4 class="modal-title"></h4>
+			        </div>
+			        <div class="modal-body">
+			          	<p></p>
+			        </div>
+			        <div class="modal-footer">
+			          	<button type="button" class="btn btn-default" data-dismiss="modal"></button>
+			        </div>
+			     </div>     
+		   </div>
+		</div>
 
 
 	<script src="js/jquery-3.3.1.min.js"></script>
