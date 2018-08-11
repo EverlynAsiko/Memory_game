@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
 	box-sizing: border-box;
 }
@@ -230,3 +231,25 @@ footer {
 		}
 	}
 }
+=======
+div#memory_board{
+	background:#ccc;
+	border:1px solid #999;
+	width:800px;
+	height:540px;
+	padding:24px;
+	margin:0px auto;
+}
+div#memory_board > div{
+	background: url(../images/cardtop.jpg) no-repeat;
+	border:1px solid #000;
+	width:71px;
+	height:71px;
+	float:left;
+	margin:10px;
+	padding:20px;
+	font-size:64px;
+	cursor:pointer;
+	text-align:center;
+}
+>>>>>>> 192495f78d5c7c3d064feeec631ba0f0b306dc74
