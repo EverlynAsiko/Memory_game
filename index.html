@@ -6,10 +6,12 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
+
+		<!--header section-->
 		<header class="page-header">
 			<h1>Find the perfect match!!!</h1>
 			<div id="gameInfo">
@@ -21,41 +23,40 @@
 						<li id="star4"><i class="fa fa-star"></i></li>
 						<li id="star5"><i class="fa fa-star"></i></li>
 					</ul>
-				</span>&nbsp&nbsp&nbsp&nbsp
-				<span id="moves"></span> Moves &nbsp&nbsp&nbsp&nbsp
-				Time: <span id="timer"></span>  &nbsp&nbsp&nbsp&nbsp
+				</span>
+				<span id="moves"></span> Moves
+				Time: <span id="timer"></span>
 				<button type="button" id="restartBtn" onclick="newBoard()"><i class="fa fa-repeat"></i> Restart</button>
 			</div>			
 		</header>
 
+		<!--Game board-->
 		<div id="memory_board">
 		</div>
 
 		<!-- Modal -->
 		<div id="modalWindow" class="modal fade" role="dialog">
-		  <div class="modal-dialog">
-
-		    <!-- Modal content-->
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h4 class="modal-title">Congratulations!</h4>
-		      </div>
-		      <div class="modal-body">
-		        <p id="winningInfo"></p>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Play again!</button>
-		      </div>
-		    </div>
-
-		  </div>
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">Congratulations!</h4>
+					</div>
+					<div class="modal-body">
+						<p id="winningInfo"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Play again!</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
 
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<script src="js/main.js"></script>
-  	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>
