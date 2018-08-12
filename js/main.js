@@ -115,9 +115,13 @@ function memoryFlipTile(tile,val){
 				    // Flip the 2 tiles back over
 				    let tile_1 = document.getElementById(memory_tile_ids[0]);
 				    let tile_2 = document.getElementById(memory_tile_ids[1]);
+				    tile_1.classList.add("flipped");
+			        tile_2.classList.add("flipped");
 				    tile_1.style.background = 'url(images/cardtop.jpg) no-repeat';
+				    tile_1.style.backgroundSize = 'cover';
 				    tile_1.innerHTML = "";
 				    tile_2.style.background = 'url(images/cardtop.jpg) no-repeat';
+				    tile_2.style.backgroundSize = 'cover';
             	    tile_2.innerHTML = "";
 				    // Clear both arrays
 				    memory_values = [];

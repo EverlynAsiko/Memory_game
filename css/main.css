@@ -44,4 +44,14 @@ ul {
    transition: opacity .25s ease-in-out;
    -moz-transition: opacity .25s ease-in-out;
    -webkit-transition: opacity .25s ease-in-out;
-   }
+}
+
+.flipped {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	position: relative;
+	overflow:visible;
+	transform: rotateY(180deg);
+	-webkit-transform:rotateY(180deg); 
+}
