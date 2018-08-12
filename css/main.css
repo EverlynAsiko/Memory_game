@@ -39,6 +39,7 @@ ul {
 	list-style-type: none;
 }
 
+/*Help from https://bavotasan.com/2011/a-simple-fade-with-css3/*/
 .fade {
 	opacity: 1;
 	transition: opacity .25s ease-in-out;

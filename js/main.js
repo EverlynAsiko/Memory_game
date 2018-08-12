@@ -1,3 +1,8 @@
+/*References:
+	https://www.youtube.com/watch?time_continue=190&v=c_ohDPWmsM0
+	https://scotch.io/tutorials/how-to-build-a-memory-matching-game-in-javascript
+	https://jsfiddle.net/james2doyle/qsQun/
+*/
 let memory_array = ['images/burundi.jpeg','images/burundi.jpeg','images/djibouti.jpeg',
 'images/djibouti.jpeg','images/eritrea.jpeg','images/eritrea.jpeg','images/ethiopia.jpeg',
 'images/ethiopia.jpeg','images/kenya.jpg','images/kenya.jpg','images/rwanda.jpeg',
