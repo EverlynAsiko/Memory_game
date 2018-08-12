@@ -14,7 +14,6 @@
 #memory_board > div{
 	background: url(../images/cardtop.jpg) no-repeat;
 	background-size: cover;
-	object-fit: cover;
 	border:1px solid #000;
 	border-radius: 4px;
 	width:20%;
@@ -24,8 +23,8 @@
 }
 
 img {
-	width: 170px;
-	height: 98px;
+	width: 100%;
+	height: 100%;
 	border:1px solid #000;
 	border-radius: 4px;
 }
@@ -55,3 +54,41 @@ ul {
 	transform: rotateY(180deg);
 	-webkit-transform:rotateY(180deg); 
 }
+
+/*added responsiveness*/
+@media screen and (max-width: 425px){
+	#memory_board{
+	width:100%;
+	padding:4px;
+	margin:0px auto;
+	}
+	#memory_board > div{
+		width:30%;
+		height:70px;
+		margin:2px;;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@media screen and (min-width: 426px) and (max-width: 799px){
+	#memory_board{
+	width:100%;
+	padding:10px;
+	margin:0px auto;
+	}
+	#memory_board > div{
+		width:30%;
+		height:85px;
+		margin:6px;;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+

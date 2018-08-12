@@ -107,8 +107,6 @@ function memoryFlipTile(tile,val){
 					$('#modalWindow').modal('toggle');
 					document.getElementById('memory_board').innerHTML = "";
 					newBoard();
-					moveCount=0;
-					stopClock();
 				}
 			} else {
 				function flip2Back(){
