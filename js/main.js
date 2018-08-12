@@ -35,6 +35,25 @@ function stopClock() {
     clicked = false;
 }
 
+function rating(){
+		stars=5;
+		if (moveCount > 16 && moveCount <= 24){
+			document.getElementById('star5').style.visibility = "hidden";
+			stars=4;
+	    }
+	    else if (moveCount > 24 && moveCount <= 32){
+	    	document.getElementById('star4').style.visibility = "hidden";
+	    	stars=3;
+	    }
+	    else if (moveCount > 32 && moveCount <= 48){
+	    	document.getElementById('star3').style.visibility = "hidden";
+	    	stars=2;
+	    }
+	    else if (moveCount > 48){
+	    	document.getElementById('star2').style.visibility = "hidden";
+	    	stars=1;
+	    }
+	}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 Array.prototype.memory_tile_shuffle = function(){
@@ -64,6 +83,7 @@ function memoryFlipTile(tile,val){
 	moveCount++;
 	startClock();
 	rating();
+	
 	if(tile.innerHTML == "" && memory_values.length < 2){
 		tile.innerHTML = val;
 		if(memory_values.length == 0){
@@ -78,8 +98,9 @@ function memoryFlipTile(tile,val){
 				memory_values = [];
             	memory_tile_ids = [];
 				// Check to see if the whole board is cleared
-				if(tiles_flipped == memory_array.length){
-					alert("YOU ARE ON FIRE!... Play again?");
+				if(tiles_flipped === memory_array.length){
+					$('#winningInfo').text(`You are on fire!In ${sec} seconds, you did a total of ${moveCount} moves. You have ${stars} stars.Bravo!`);
+					$('#modalWindow').modal('toggle');
 					document.getElementById('memory_board').innerHTML = "";
 					newBoard();
 					moveCount=0;
@@ -104,21 +125,6 @@ function memoryFlipTile(tile,val){
 	}
 	document.getElementById('moves').innerHTML=moveCount;
 }
-
-function rating(){
-	let star=[document.getElementById("rating").childNodes[0].nodeValue,
-	document.getElementById("rating").childNodes[1].nodeValue,
-	document.getElementById("rating").childNodes[2].nodeValue,
-	document.getElementById("rating").childNodes[3].nodeValue,
-	document.getElementById("rating").childNodes[4].nodeValue,];
-	if (moves > 8 && moves < 12){
-		star[4].style.visibility = "hidden";
-    }
-    else if (moves > 13){
-    	star[3].style.visibility = "hidden";
-    }
-}
-
 
 window.addEventListener("load", newBoard());
 

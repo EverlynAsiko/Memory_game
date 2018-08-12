@@ -2,7 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	background:#ccc;
+	background:#00FF00;
 	border:1px solid #999;
 	border-radius: 4px;
 	width:80%;
@@ -30,4 +30,9 @@ img {
 
 .page-header {
 	text-align: center;
+}
+
+ul {
+	display: inline-flex;
+	list-style-type: none;
 }
